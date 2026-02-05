@@ -1,62 +1,424 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const profile = {
+	name: 'Paulo Ferreira',
+	title: 'Desenvolvedor Front-end & UI',
+	location: 'São Paulo, Brasil',
+	summary:
+		'Crio interfaces rápidas, acessíveis e bonitas. Trabalho com Astro, React e design systems leves para entregar produtos que funcionam e encantam.'
+};
+
+const highlights = [
+	{ label: '5+ anos', value: 'Experiência' },
+	{ label: '18', value: 'Projetos entregues' },
+	{ label: '3', value: 'Prêmios e menções' }
+];
+
+const skills = [
+	'JavaScript / TypeScript',
+	'Astro & React',
+	'CSS moderno / Tailwind',
+	'Figma & Design Systems',
+	'Performance Web',
+	'Acessibilidade'
+];
+
+const projects = [
+	{
+		name: 'Vitrine Aurora',
+		description:
+			'E-commerce headless com catálogo dinâmico, busca instantânea e checkout otimizado para conversão.',
+		stack: ['Astro', 'Stripe', 'Cloudflare'],
+		link: '#'
+	},
+	{
+		name: 'Nimbus Studio',
+		description:
+			'Landing page modular para SaaS, com CMS e animações discretas de entrada.',
+		stack: ['Astro', 'React', 'Content Collections'],
+		link: '#'
+	},
+	{
+		name: 'Atlas Insights',
+		description:
+			'Dashboard de dados com filtros rápidos, exportação e gráficos responsivos.',
+		stack: ['TypeScript', 'D3', 'API REST'],
+		link: '#'
+	}
+];
+
+const timeline = [
+	{
+		period: '2023 - Atual',
+		role: 'Front-end Lead · Orbital Labs',
+		details: 'Guiando squad de produto, criando design system e melhorando o tempo de carregamento em 45%.'
+	},
+	{
+		period: '2020 - 2023',
+		role: 'UI Engineer · Lumen Studio',
+		details: 'Projetos para fintechs e e-commerces, com foco em performance e experiência do usuário.'
+	}
+];
+
+const socials = [
+	{ name: 'GitHub', handle: '@paulo', link: '#' },
+	{ name: 'LinkedIn', handle: '/in/paulo', link: '#' },
+	{ name: 'Email', handle: 'paulo@email.com', link: 'mailto:paulo@email.com' }
+];
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title="Portfólio | Paulo Ferreira" description={profile.summary} />
+	</head>
+	<body>
+		<Header />
+		<main class="portfolio">
+			<section class="hero">
+				<div>
+					<p class="eyebrow">Disponível para novos projetos</p>
+					<h1>{profile.name}</h1>
+					<p class="title">{profile.title}</p>
+					<p class="summary">{profile.summary}</p>
+					<div class="cta">
+						<a class="button primary" href="#contato">Vamos conversar</a>
+						<a class="button ghost" href="#projetos">Ver projetos</a>
+					</div>
+				</div>
+				<div class="hero-card">
+					<p class="label">Localização</p>
+					<p class="value">{profile.location}</p>
+					<div class="highlights">
+						{highlights.map((item) => (
+							<div class="highlight">
+								<span class="value">{item.value}</span>
+								<span class="label">{item.label}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+			<section class="grid" aria-labelledby="skills">
+				<div>
+					<h2 id="skills">Competências</h2>
+					<p>
+						Equilíbrio entre design e engenharia para criar produtos consistentes e fáceis de manter.
+					</p>
+				</div>
+				<ul class="chip-list">
+					{skills.map((skill) => (
+						<li>{skill}</li>
+					))}
+				</ul>
+			</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+			<section id="projetos" aria-labelledby="projects">
+				<h2 id="projects">Projetos em destaque</h2>
+				<div class="cards">
+					{projects.map((project) => (
+						<article class="card">
+							<h3>{project.name}</h3>
+							<p>{project.description}</p>
+							<ul class="tag-list">
+								{project.stack.map((tag) => (
+									<li>{tag}</li>
+								))}
+							</ul>
+							<a class="link" href={project.link}>
+								Ver case
+							</a>
+						</article>
+					))}
+				</div>
+			</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+			<section class="grid" aria-labelledby="timeline">
+				<div>
+					<h2 id="timeline">Experiência</h2>
+					<p>Times e projetos onde atuei criando produtos digitais escaláveis.</p>
+				</div>
+				<div class="timeline">
+					{timeline.map((item) => (
+						<div class="timeline-item">
+							<p class="period">{item.period}</p>
+							<h3>{item.role}</h3>
+							<p>{item.details}</p>
+						</div>
+					))}
+				</div>
+			</section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+			<section id="contato" class="contact" aria-labelledby="contact-title">
+				<h2 id="contact-title">Contato</h2>
+				<p>
+					Quer um time que entregue rápido e com qualidade? Me chama e vamos planejar o próximo
+					lançamento.
+				</p>
+				<div class="contact-grid">
+					{socials.map((item) => (
+						<a class="contact-card" href={item.link}>
+							<span class="label">{item.name}</span>
+							<span class="value">{item.handle}</span>
+						</a>
+					))}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	:global(body) {
+		background: radial-gradient(circle at top left, #f7f1ff 0%, #fff 35%),
+			radial-gradient(circle at 80% 10%, #e9f4ff 0%, #ffffff 45%), #ffffff;
+	}
+
+	.portfolio {
+		--ink: #14151f;
+		--muted: #5b6278;
+		--accent: #f15b2a;
+		--accent-soft: rgba(241, 91, 42, 0.12);
+		--panel: #ffffff;
+		--panel-shadow: 0 24px 60px rgba(20, 21, 31, 0.08);
+		color: var(--ink);
+	}
+
+	.hero {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 2.5rem;
+		align-items: center;
+		margin-bottom: 3rem;
+	}
+
+	.eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: 0.7rem;
+		color: var(--muted);
+		font-weight: 600;
+	}
+
+	.title {
+		font-size: 1.2rem;
+		color: var(--muted);
+		margin-top: 0.4rem;
+	}
+
+	.summary {
+		font-size: 1.15rem;
+		margin-top: 1rem;
+	}
+
+	.cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-top: 1.8rem;
+	}
+
+	.button {
+		padding: 0.8rem 1.5rem;
+		border-radius: 999px;
+		font-weight: 600;
+		border: 1px solid transparent;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 160px;
+	}
+
+	.button.primary {
+		background: var(--accent);
+		color: white;
+		box-shadow: 0 12px 24px rgba(241, 91, 42, 0.25);
+	}
+
+	.button.ghost {
+		border-color: rgba(20, 21, 31, 0.2);
+		color: var(--ink);
+		background: transparent;
+	}
+
+	.hero-card {
+		background: var(--panel);
+		border-radius: 24px;
+		padding: 2rem;
+		box-shadow: var(--panel-shadow);
+	}
+
+	.hero-card .label {
+		font-size: 0.8rem;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+	}
+
+	.hero-card .value {
+		font-size: 1.4rem;
+		margin: 0.4rem 0 1.5rem;
+		font-weight: 700;
+	}
+
+	.highlights {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+		gap: 1rem;
+	}
+
+	.highlight {
+		background: var(--accent-soft);
+		padding: 1rem;
+		border-radius: 16px;
+		text-align: center;
+	}
+
+	.highlight .value {
+		font-size: 1.4rem;
+		font-weight: 700;
+		display: block;
+	}
+
+	.highlight .label {
+		font-size: 0.8rem;
+		color: var(--muted);
+		margin-top: 0.3rem;
+		display: block;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 2rem;
+		align-items: start;
+		margin: 3rem 0;
+	}
+
+	.chip-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 0.8rem;
+	}
+
+	.chip-list li {
+		background: rgba(20, 21, 31, 0.04);
+		padding: 0.7rem 1rem;
+		border-radius: 999px;
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.card {
+		background: var(--panel);
+		padding: 1.8rem;
+		border-radius: 20px;
+		box-shadow: var(--panel-shadow);
+		display: grid;
+		gap: 0.8rem;
+	}
+
+	.tag-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		font-size: 0.85rem;
+		color: var(--muted);
+	}
+
+	.tag-list li {
+		background: rgba(20, 21, 31, 0.06);
+		padding: 0.3rem 0.6rem;
+		border-radius: 999px;
+	}
+
+	.link {
+		font-weight: 600;
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.timeline {
+		display: grid;
+		gap: 1.5rem;
+	}
+
+	.timeline-item {
+		background: var(--panel);
+		padding: 1.5rem;
+		border-radius: 18px;
+		box-shadow: var(--panel-shadow);
+	}
+
+	.period {
+		font-size: 0.85rem;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.contact {
+		margin-top: 3rem;
+		padding: 2.5rem;
+		background: rgba(241, 91, 42, 0.08);
+		border-radius: 24px;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.contact-card {
+		background: white;
+		padding: 1rem 1.2rem;
+		border-radius: 16px;
+		text-decoration: none;
+		display: grid;
+		gap: 0.4rem;
+		color: var(--ink);
+		box-shadow: var(--panel-shadow);
+	}
+
+	.contact-card .label {
+		font-size: 0.8rem;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.contact-card .value {
+		font-weight: 600;
+	}
+
+	@media (max-width: 720px) {
+		.hero-card {
+			padding: 1.5rem;
+		}
+
+		.contact {
+			padding: 1.8rem;
+		}
+	}
+</style>
