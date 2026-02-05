@@ -1,4 +1,4 @@
----
+ï»¿---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -6,15 +6,15 @@ import Footer from '../components/Footer.astro';
 const profile = {
 	name: 'Paulo Ferreira',
 	title: 'Desenvolvedor Front-end & UI',
-	location: 'São Paulo, Brasil',
+	location: 'SÃ£o Paulo, Brasil',
 	summary:
-		'Crio interfaces rápidas, acessíveis e bonitas. Trabalho com Astro, React e design systems leves para entregar produtos que funcionam e encantam.'
+		'Crio interfaces rÃ¡pidas, acessÃ­veis e bonitas. Trabalho com Astro, React e design systems leves para entregar produtos que funcionam e encantam.'
 };
 
 const highlights = [
-	{ label: '5+ anos', value: 'Experiência' },
+	{ label: '5+ anos', value: 'ExperiÃªncia' },
 	{ label: '18', value: 'Projetos entregues' },
-	{ label: '3', value: 'Prêmios e menções' }
+	{ label: '3', value: 'PrÃªmios e menÃ§Ãµes' }
 ];
 
 const skills = [
@@ -30,21 +30,21 @@ const projects = [
 	{
 		name: 'Vitrine Aurora',
 		description:
-			'E-commerce headless com catálogo dinâmico, busca instantânea e checkout otimizado para conversão.',
+			'E-commerce headless com catÃ¡logo dinÃ¢mico, busca instantÃ¢nea e checkout otimizado para conversÃ£o.',
 		stack: ['Astro', 'Stripe', 'Cloudflare'],
 		link: '#'
 	},
 	{
 		name: 'Nimbus Studio',
 		description:
-			'Landing page modular para SaaS, com CMS e animações discretas de entrada.',
+			'Landing page modular para SaaS, com CMS e animaÃ§Ãµes discretas de entrada.',
 		stack: ['Astro', 'React', 'Content Collections'],
 		link: '#'
 	},
 	{
 		name: 'Atlas Insights',
 		description:
-			'Dashboard de dados com filtros rápidos, exportação e gráficos responsivos.',
+			'Dashboard de dados com filtros rÃ¡pidos, exportaÃ§Ã£o e grÃ¡ficos responsivos.',
 		stack: ['TypeScript', 'D3', 'API REST'],
 		link: '#'
 	}
@@ -53,13 +53,13 @@ const projects = [
 const timeline = [
 	{
 		period: '2023 - Atual',
-		role: 'Front-end Lead · Orbital Labs',
+		role: 'Front-end Lead Â· Orbital Labs',
 		details: 'Guiando squad de produto, criando design system e melhorando o tempo de carregamento em 45%.'
 	},
 	{
 		period: '2020 - 2023',
-		role: 'UI Engineer · Lumen Studio',
-		details: 'Projetos para fintechs e e-commerces, com foco em performance e experiência do usuário.'
+		role: 'UI Engineer Â· Lumen Studio',
+		details: 'Projetos para fintechs e e-commerces, com foco em performance e experiÃªncia do usuÃ¡rio.'
 	}
 ];
 
@@ -73,14 +73,14 @@ const socials = [
 <!doctype html>
 <html lang="pt-BR">
 	<head>
-		<BaseHead title="Portfólio | Paulo Ferreira" description={profile.summary} />
+		<BaseHead title="PortfÃ³lio | Paulo Ferreira" description={profile.summary} />
 	</head>
 	<body>
 		<Header />
 		<main class="portfolio">
-			<section class="hero">
-				<div>
-					<p class="eyebrow">Disponível para novos projetos</p>
+			<section class="section hero">
+				<div class="hero-content">
+					<p class="eyebrow">DisponÃ­vel para novos projetos</p>
 					<h1>{profile.name}</h1>
 					<p class="title">{profile.title}</p>
 					<p class="summary">{profile.summary}</p>
@@ -90,8 +90,10 @@ const socials = [
 					</div>
 				</div>
 				<div class="hero-card">
-					<p class="label">Localização</p>
-					<p class="value">{profile.location}</p>
+					<div>
+						<p class="label">LocalizaÃ§Ã£o</p>
+						<p class="value">{profile.location}</p>
+					</div>
 					<div class="highlights">
 						{highlights.map((item) => (
 							<div class="highlight">
@@ -103,11 +105,12 @@ const socials = [
 				</div>
 			</section>
 
-			<section class="grid" aria-labelledby="skills">
-				<div>
-					<h2 id="skills">Competências</h2>
-					<p>
-						Equilíbrio entre design e engenharia para criar produtos consistentes e fáceis de manter.
+			<section class="section split" aria-labelledby="skills">
+				<div class="section-header">
+					<p class="section-label">Expertise</p>
+					<h2 id="skills">CompetÃªncias</h2>
+					<p class="section-subtitle">
+						EquilÃ­brio entre design e engenharia para criar produtos consistentes e fÃ¡ceis de manter.
 					</p>
 				</div>
 				<ul class="chip-list">
@@ -117,8 +120,14 @@ const socials = [
 				</ul>
 			</section>
 
-			<section id="projetos" aria-labelledby="projects">
-				<h2 id="projects">Projetos em destaque</h2>
+			<section id="projetos" class="section" aria-labelledby="projects">
+				<div class="section-header">
+					<p class="section-label">SeleÃ§Ã£o</p>
+					<h2 id="projects">Projetos em destaque</h2>
+					<p class="section-subtitle">
+						Casos reais com foco em produto, performance e conversÃ£o.
+					</p>
+				</div>
 				<div class="cards">
 					{projects.map((project) => (
 						<article class="card">
@@ -137,10 +146,13 @@ const socials = [
 				</div>
 			</section>
 
-			<section class="grid" aria-labelledby="timeline">
-				<div>
-					<h2 id="timeline">Experiência</h2>
-					<p>Times e projetos onde atuei criando produtos digitais escaláveis.</p>
+			<section class="section split" aria-labelledby="timeline">
+				<div class="section-header">
+					<p class="section-label">Jornada</p>
+					<h2 id="timeline">ExperiÃªncia</h2>
+					<p class="section-subtitle">
+						Times e projetos onde atuei criando produtos digitais escalÃ¡veis.
+					</p>
 				</div>
 				<div class="timeline">
 					{timeline.map((item) => (
@@ -153,12 +165,15 @@ const socials = [
 				</div>
 			</section>
 
-			<section id="contato" class="contact" aria-labelledby="contact-title">
-				<h2 id="contact-title">Contato</h2>
-				<p>
-					Quer um time que entregue rápido e com qualidade? Me chama e vamos planejar o próximo
-					lançamento.
-				</p>
+			<section id="contato" class="section contact" aria-labelledby="contact-title">
+				<div class="section-header">
+					<p class="section-label">Contato</p>
+					<h2 id="contact-title">Vamos tirar o prÃ³ximo projeto do papel</h2>
+					<p class="section-subtitle">
+						Quer um time que entregue rÃ¡pido e com qualidade? Me chama e vamos planejar o prÃ³ximo
+						lanÃ§amento.
+					</p>
+				</div>
 				<div class="contact-grid">
 					{socials.map((item) => (
 						<a class="contact-card" href={item.link}>
@@ -175,57 +190,164 @@ const socials = [
 
 <style>
 	:global(body) {
-		background: radial-gradient(circle at top left, #f7f1ff 0%, #fff 35%),
-			radial-gradient(circle at 80% 10%, #e9f4ff 0%, #ffffff 45%), #ffffff;
+		background:
+			radial-gradient(60% 80% at 10% 10%, rgba(255, 187, 134, 0.45), rgba(255, 187, 134, 0) 70%),
+			radial-gradient(70% 70% at 90% 15%, rgba(143, 196, 255, 0.5), rgba(143, 196, 255, 0) 65%),
+			radial-gradient(80% 80% at 50% 90%, rgba(255, 222, 170, 0.4), rgba(255, 222, 170, 0) 60%),
+			linear-gradient(120deg, #f5eee6 0%, #f5f7fb 40%, #f8efe7 100%);
+		color: #171824;
+	}
+
+	:global(main.portfolio) {
+		width: min(1120px, calc(100% - 3rem));
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 4.5rem 0 6rem;
+		display: grid;
+		gap: 3.5rem;
+	}
+
+	:global(header) {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: rgba(255, 255, 255, 0.72);
+		backdrop-filter: blur(16px);
+		border-bottom: 1px solid rgba(23, 24, 36, 0.08);
+	}
+
+	:global(header nav a) {
+		color: #171824;
 	}
 
 	.portfolio {
-		--ink: #14151f;
-		--muted: #5b6278;
-		--accent: #f15b2a;
-		--accent-soft: rgba(241, 91, 42, 0.12);
-		--panel: #ffffff;
-		--panel-shadow: 0 24px 60px rgba(20, 21, 31, 0.08);
+		--ink: #171824;
+		--muted: #5a6074;
+		--accent: #ff6b3d;
+		--accent-strong: #ff4d1c;
+		--accent-cool: #2a8b82;
+		--panel: rgba(255, 255, 255, 0.72);
+		--panel-solid: #ffffff;
+		--stroke: rgba(23, 24, 36, 0.08);
+		--shadow: 0 28px 70px rgba(15, 18, 28, 0.12);
+		--shadow-soft: 0 18px 40px rgba(15, 18, 28, 0.1);
 		color: var(--ink);
 	}
 
-	.hero {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 2.5rem;
-		align-items: center;
-		margin-bottom: 3rem;
+	.portfolio h1 {
+		font-size: clamp(2.8rem, 4vw, 4.6rem);
+		line-height: 1.05;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.6rem;
 	}
 
-	.eyebrow {
+	.portfolio h2 {
+		font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+		letter-spacing: -0.015em;
+		margin: 0;
+	}
+
+	.portfolio h3 {
+		font-size: 1.2rem;
+		margin: 0;
+	}
+
+	.section {
+		padding: 2.8rem;
+		border-radius: 28px;
+		background: var(--panel);
+		border: 1px solid var(--stroke);
+		box-shadow: var(--shadow);
+		display: grid;
+		gap: 1.6rem;
+		position: relative;
+	}
+
+	.section.hero {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 3rem;
+		padding: 3.2rem;
+		background: linear-gradient(
+			135deg,
+			rgba(255, 255, 255, 0.9) 0%,
+			rgba(255, 243, 232, 0.92) 55%,
+			rgba(243, 250, 255, 0.9) 100%
+		);
+	}
+
+	.section.split {
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 2.8rem;
+		align-items: start;
+	}
+
+	.section-header {
+		display: grid;
+		gap: 0.8rem;
+	}
+
+	.section-label {
+		margin: 0;
 		text-transform: uppercase;
-		letter-spacing: 0.2em;
-		font-size: 0.7rem;
+		letter-spacing: 0.28em;
+		font-size: 0.68rem;
 		color: var(--muted);
 		font-weight: 600;
 	}
 
-	.title {
-		font-size: 1.2rem;
+	.section-subtitle {
+		margin: 0;
+		font-size: 1rem;
 		color: var(--muted);
-		margin-top: 0.4rem;
+		max-width: 32rem;
+	}
+
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.35rem 0.9rem;
+		border-radius: 999px;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: 0.65rem;
+		color: var(--accent-strong);
+		background: rgba(255, 107, 61, 0.12);
+		font-weight: 600;
+	}
+
+	.hero-content {
+		display: grid;
+		gap: 1.2rem;
+		align-content: start;
+	}
+
+	.hero-content p {
+		margin: 0;
+	}
+
+	.title {
+		font-size: 1.25rem;
+		color: var(--muted);
+		margin: 0;
 	}
 
 	.summary {
-		font-size: 1.15rem;
-		margin-top: 1rem;
+		font-size: 1.1rem;
+		margin: 0;
+		max-width: 32rem;
 	}
 
 	.cta {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1rem;
-		margin-top: 1.8rem;
+		margin-top: 1.4rem;
 	}
 
 	.button {
-		padding: 0.8rem 1.5rem;
-		border-radius: 999px;
+		padding: 0.95rem 1.6rem;
+		border-radius: 14px;
 		font-weight: 600;
 		border: 1px solid transparent;
 		text-decoration: none;
@@ -236,69 +358,66 @@ const socials = [
 	}
 
 	.button.primary {
-		background: var(--accent);
+		background: var(--accent-strong);
 		color: white;
-		box-shadow: 0 12px 24px rgba(241, 91, 42, 0.25);
+		box-shadow: 0 18px 30px rgba(255, 77, 28, 0.25);
 	}
 
 	.button.ghost {
-		border-color: rgba(20, 21, 31, 0.2);
+		border-color: var(--stroke);
 		color: var(--ink);
-		background: transparent;
+		background: rgba(255, 255, 255, 0.6);
 	}
 
 	.hero-card {
-		background: var(--panel);
+		background: rgba(23, 24, 36, 0.04);
 		border-radius: 24px;
-		padding: 2rem;
-		box-shadow: var(--panel-shadow);
+		padding: 2.4rem;
+		border: 1px solid var(--stroke);
+		box-shadow: var(--shadow-soft);
+		display: grid;
+		gap: 1.6rem;
 	}
 
 	.hero-card .label {
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		color: var(--muted);
 		text-transform: uppercase;
-		letter-spacing: 0.12em;
+		letter-spacing: 0.18em;
 	}
 
 	.hero-card .value {
-		font-size: 1.4rem;
-		margin: 0.4rem 0 1.5rem;
+		font-size: 1.5rem;
+		margin: 0.4rem 0 0.2rem;
 		font-weight: 700;
 	}
 
 	.highlights {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 		gap: 1rem;
 	}
 
 	.highlight {
-		background: var(--accent-soft);
-		padding: 1rem;
-		border-radius: 16px;
+		background: linear-gradient(130deg, rgba(255, 107, 61, 0.16), rgba(255, 207, 155, 0.22));
+		padding: 1.2rem 1rem;
+		border-radius: 18px;
 		text-align: center;
+		border: 1px solid rgba(255, 107, 61, 0.2);
 	}
 
 	.highlight .value {
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 		font-weight: 700;
 		display: block;
+		color: var(--ink);
 	}
 
 	.highlight .label {
-		font-size: 0.8rem;
+		font-size: 0.78rem;
 		color: var(--muted);
-		margin-top: 0.3rem;
+		margin-top: 0.4rem;
 		display: block;
-	}
-
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 2rem;
-		align-items: start;
-		margin: 3rem 0;
 	}
 
 	.chip-list {
@@ -307,31 +426,34 @@ const socials = [
 		margin: 0;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-		gap: 0.8rem;
+		gap: 1rem;
 	}
 
 	.chip-list li {
-		background: rgba(20, 21, 31, 0.04);
-		padding: 0.7rem 1rem;
+		background: rgba(23, 24, 36, 0.05);
+		padding: 0.85rem 1.1rem;
 		border-radius: 999px;
 		font-weight: 600;
 		color: var(--muted);
+		border: 1px solid rgba(23, 24, 36, 0.08);
 	}
 
 	.cards {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1.5rem;
-		margin-top: 1.5rem;
+		gap: 2rem;
+		margin-top: 0.5rem;
 	}
 
 	.card {
-		background: var(--panel);
-		padding: 1.8rem;
-		border-radius: 20px;
-		box-shadow: var(--panel-shadow);
+		background: var(--panel-solid);
+		padding: 2rem;
+		border-radius: 22px;
+		border: 1px solid var(--stroke);
+		box-shadow: var(--shadow-soft);
 		display: grid;
-		gap: 0.8rem;
+		gap: 1rem;
+		min-height: 250px;
 	}
 
 	.tag-list {
@@ -340,85 +462,138 @@ const socials = [
 		margin: 0;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
+		gap: 0.6rem;
 		font-size: 0.85rem;
 		color: var(--muted);
 	}
 
 	.tag-list li {
-		background: rgba(20, 21, 31, 0.06);
-		padding: 0.3rem 0.6rem;
+		background: rgba(23, 24, 36, 0.06);
+		padding: 0.35rem 0.7rem;
 		border-radius: 999px;
 	}
 
 	.link {
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--accent-strong);
 		text-decoration: none;
 	}
 
 	.timeline {
 		display: grid;
-		gap: 1.5rem;
+		gap: 1.6rem;
 	}
 
 	.timeline-item {
-		background: var(--panel);
-		padding: 1.5rem;
-		border-radius: 18px;
-		box-shadow: var(--panel-shadow);
+		background: var(--panel-solid);
+		padding: 1.8rem;
+		border-radius: 20px;
+		border: 1px solid var(--stroke);
+		box-shadow: var(--shadow-soft);
+		display: grid;
+		gap: 0.6rem;
 	}
 
 	.period {
-		font-size: 0.85rem;
+		font-size: 0.78rem;
 		color: var(--muted);
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.16em;
 	}
 
 	.contact {
-		margin-top: 3rem;
-		padding: 2.5rem;
-		background: rgba(241, 91, 42, 0.08);
-		border-radius: 24px;
+		background: linear-gradient(130deg, rgba(255, 107, 61, 0.12), rgba(255, 214, 170, 0.26));
+		border: 1px solid rgba(255, 107, 61, 0.2);
 	}
 
 	.contact-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 1rem;
-		margin-top: 1.5rem;
+		gap: 1.2rem;
+		margin-top: 1rem;
 	}
 
 	.contact-card {
-		background: white;
-		padding: 1rem 1.2rem;
-		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.9);
+		padding: 1.2rem 1.4rem;
+		border-radius: 18px;
 		text-decoration: none;
 		display: grid;
 		gap: 0.4rem;
 		color: var(--ink);
-		box-shadow: var(--panel-shadow);
+		border: 1px solid rgba(23, 24, 36, 0.08);
+		box-shadow: var(--shadow-soft);
 	}
 
 	.contact-card .label {
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		color: var(--muted);
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.14em;
 	}
 
 	.contact-card .value {
 		font-weight: 600;
 	}
 
+	.section {
+		opacity: 0;
+		transform: translateY(16px);
+		animation: section-reveal 0.7s ease forwards;
+	}
+
+	.section:nth-of-type(1) {
+		animation-delay: 0.05s;
+	}
+
+	.section:nth-of-type(2) {
+		animation-delay: 0.15s;
+	}
+
+	.section:nth-of-type(3) {
+		animation-delay: 0.25s;
+	}
+
+	.section:nth-of-type(4) {
+		animation-delay: 0.35s;
+	}
+
+	.section:nth-of-type(5) {
+		animation-delay: 0.45s;
+	}
+
+	@keyframes section-reveal {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
 	@media (max-width: 720px) {
-		.hero-card {
-			padding: 1.5rem;
+		:global(main.portfolio) {
+			width: calc(100% - 2rem);
+			padding: 3.5rem 0 5rem;
+			gap: 2.6rem;
 		}
 
-		.contact {
-			padding: 1.8rem;
+		.section {
+			padding: 2rem;
+		}
+
+		.section.hero {
+			padding: 2.4rem;
+		}
+
+		.hero-card {
+			padding: 2rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.section {
+			opacity: 1;
+			transform: none;
+			animation: none;
 		}
 	}
 </style>
